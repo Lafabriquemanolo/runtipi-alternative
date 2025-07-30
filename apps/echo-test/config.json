@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/runtipi/runtipi-appstore/main/apps/app-info-schema.json",
+  "name": "Echo Test",
+  "available": true,
+  "port": 9998,
+  "exposable": true,
+  "dynamic_config": true,
+  "id": "echo-test",
+  "description": "Une application de test minimaliste qui renvoie les informations de la requete. Ideale pour verifier que votre App Store est bien connecte.",
+  "tipi_version": 4,
+  "version": "0.2.3",
+  "categories": [
+    "utilities"
+  ],
+  "short_desc": "Application de test minimaliste (echo server).",
+  "author": "HashiCorp",
+  "source": "https://github.com/hashicorp/http-echo",
+  "website": "https://github.com/hashicorp/http-echo",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1691943801422,
+  "updated_at": 1749044739852
+}
