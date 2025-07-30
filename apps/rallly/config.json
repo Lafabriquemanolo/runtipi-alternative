@@ -1,7 +1,7 @@
 {
   "name": "Rallly",
   "available": true,
-  "port": 8080,
+  "port": 8081,
   "exposable": true,
   "dynamic_config": true,
   "id": "rallly",
