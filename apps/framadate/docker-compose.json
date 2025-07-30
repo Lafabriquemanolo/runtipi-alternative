@@ -10,24 +10,12 @@
       "depends_on": [
         "{{ .APP_ID }}_db"
       ],
-      "environment": [
-        {
-          "name": "DB_HOST",
-          "value": "{{ .APP_ID }}_db"
-        },
-        {
-          "name": "DB_NAME",
-          "value": "framadate"
-        },
-        {
-          "name": "DB_USER",
-          "value": "framadate"
-        },
-        {
-          "name": "DB_PASSWORD",
-          "value": "{{ .APP_ID }}_db_password"
-        }
-      ]
+      "environment": {
+        "DB_HOST": "{{ .APP_ID }}_db",
+        "DB_NAME": "framadate",
+        "DB_USER": "framadate",
+        "DB_PASSWORD": "{{ .APP_ID }}_db_password"
+      }
     },
     {
       "name": "{{ .APP_ID }}_db",
@@ -35,8 +23,8 @@
       "restart": "unless-stopped",
       "volumes": [
         {
-          "source": "{{ .DATA_DIR }}/mariadb",
-          "target": "/var/lib/mysql"
+          "hostPath": "{{ .DATA_DIR }}/mariadb",
+          "containerPath": "/var/lib/mysql"
         }
       ],
       "healthcheck": {
@@ -51,24 +39,12 @@
         "timeout": "5s",
         "retries": 5
       },
-      "environment": [
-        {
-          "name": "MYSQL_ROOT_PASSWORD",
-          "value": "{{ .APP_ID }}_root_password"
-        },
-        {
-          "name": "MYSQL_DATABASE",
-          "value": "framadate"
-        },
-        {
-          "name": "MYSQL_USER",
-          "value": "framadate"
-        },
-        {
-          "name": "MYSQL_PASSWORD",
-          "value": "{{ .APP_ID }}_db_password"
-        }
-      ]
+      "environment": {
+        "MYSQL_ROOT_PASSWORD": "{{ .APP_ID }}_root_password",
+        "MYSQL_DATABASE": "framadate",
+        "MYSQL_USER": "framadate",
+        "MYSQL_PASSWORD": "{{ .APP_ID }}_db_password"
+      }
     }
   ]
 }
