@@ -1,10 +1,57 @@
 {
   "services": [
     {
-      "name": "rallly",
-      "image": "lukevella/rallly:3",
+      "name": "{{ .APP_ID }}",
+      "image": "rallycommunity/rally:2.1.0",
       "isMain": true,
-      "internalPort": 3000
+      "internalPort": 3000,
+      "depends_on": ["{{ .APP_ID }}_db"],
+      "environment": [
+        {
+          "name": "DB_HOST",
+          "value": "{{ .APP_ID }}_db"
+        },
+        {
+          "name": "DB_PORT",
+          "value": "5432"
+        },
+        {
+          "name": "DB_USER",
+          "value": "rally"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "value": "{{ .APP_ID }}_db_password"
+        },
+        {
+          "name": "DB_NAME",
+          "value": "rally"
+        }
+      ]
+    },
+    {
+      "name": "{{ .APP_ID }}_db",
+      "image": "postgres:13-alpine",
+      "volumes": [
+        {
+          "source": "{{ .DATA_DIR }}/postgres",
+          "target": "/var/lib/postgresql/data"
+        }
+      ],
+      "environment": [
+        {
+          "name": "POSTGRES_USER",
+          "value": "rally"
+        },
+        {
+          "name": "POSTGRES_PASSWORD",
+          "value": "{{ .APP_ID }}_db_password"
+        },
+        {
+          "name": "POSTGRES_DB",
+          "value": "rally"
+        }
+      ]
     }
   ]
 }
