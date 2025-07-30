@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/runtipi/runtipi-appstore/main/apps/dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "{{ .APP_ID }}",
+      "image": "hashicorp/http-echo:0.2.3",
+      "isMain": true,
+      "internalPort": 5678,
+      "restart": "unless-stopped",
+      "args": [
+        "-text",
+        "L'application de test fonctionne !"
+      ]
+    }
+  ]
+}
