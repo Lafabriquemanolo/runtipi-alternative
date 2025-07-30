@@ -7,11 +7,9 @@
       "isMain": true,
       "internalPort": 80,
       "restart": "unless-stopped",
-      "depends_on": {
-        "{{ .APP_ID }}_db": {
-          "condition": "service_healthy"
-        }
-      },
+      "depends_on": [
+        "{{ .APP_ID }}_db"
+      ],
       "environment": [
         {
           "name": "DB_HOST",
@@ -42,7 +40,13 @@
         }
       ],
       "healthcheck": {
-        "test": ["CMD", "mysqladmin", "ping", "-h", "localhost"],
+        "test": [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost"
+        ],
         "interval": "10s",
         "timeout": "5s",
         "retries": 5
