@@ -1,0 +1,20 @@
+{
+  "name": "Rallly",
+  "available": true,
+  "port": 8080,
+  "exposable": true,
+  "dynamic_config": true,
+  "id": "rallly",
+  "description": "Outil de planification et de collaboration open-source pour organiser des événements et réunions.",
+  "tipi_version": 3,
+  "version": "3.8.0",
+  "categories": ["productivity"],
+  "short_desc": "Planification de réunions simplifiée",
+  "author": "Luke Vella",
+  "source": "https://github.com/lukevella/rallly",
+  "website": "https://rallly.co",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1722355200000,
+  "updated_at": 1722355200000
+}
