@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "{{ .APP_ID }}",
-      "image": "tribut/framadate:latest",
+      "image": "nginx:1.21.6-alpine",
       "isMain": true,
       "internalPort": 80,
       "restart": "unless-stopped"
