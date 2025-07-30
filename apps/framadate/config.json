@@ -6,17 +6,16 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "framadate",
-  "description": "Framadate est un service en ligne qui permet de planifier un rendez-vous ou de prendre une decision rapidement et simplement. C'est une alternative libre et open-source a Doodle, hebergee par vous-meme.",
+  "description": "Test de visibilite pour Framadate.",
   "tipi_version": 4,
-  "version": "1.1.18",
+  "version": "1.0.0",
   "categories": [
-    "utilities",
-    "collaboration"
+    "utilities"
   ],
-  "short_desc": "Alternative libre et auto-hebergee a Doodle.",
-  "author": "Framasoft",
-  "source": "https://framagit.org/framasoft/framadate",
-  "website": "https://framadate.org/",
+  "short_desc": "Test de visibilite.",
+  "author": "Test",
+  "source": "https://github.com",
+  "website": "https://github.com",
   "form_fields": [],
   "supported_architectures": [
     "arm64",
