@@ -6,69 +6,7 @@
       "image": "tribut/framadate:latest",
       "isMain": true,
       "internalPort": 80,
-      "restart": "unless-stopped",
-      "depends_on": [
-        "{{ .APP_ID }}_db"
-      ],
-      "environment": [
-        {
-          "name": "DB_HOST",
-          "value": "{{ .APP_ID }}_db"
-        },
-        {
-          "name": "DB_NAME",
-          "value": "framadate"
-        },
-        {
-          "name": "DB_USER",
-          "value": "framadate"
-        },
-        {
-          "name": "DB_PASSWORD",
-          "value": "{{ .APP_ID }}_db_password"
-        }
-      ]
-    },
-    {
-      "name": "{{ .APP_ID }}_db",
-      "image": "mariadb:10.5",
-      "restart": "unless-stopped",
-      "volumes": [
-        {
-          "source": "{{ .DATA_DIR }}/mariadb",
-          "target": "/var/lib/mysql"
-        }
-      ],
-      "healthcheck": {
-        "test": [
-          "CMD",
-          "mysqladmin",
-          "ping",
-          "-h",
-          "localhost"
-        ],
-        "interval": "10s",
-        "timeout": "5s",
-        "retries": 5
-      },
-      "environment": [
-        {
-          "name": "MYSQL_ROOT_PASSWORD",
-          "value": "{{ .APP_ID }}_root_password"
-        },
-        {
-          "name": "MYSQL_DATABASE",
-          "value": "framadate"
-        },
-        {
-          "name": "MYSQL_USER",
-          "value": "framadate"
-        },
-        {
-          "name": "MYSQL_PASSWORD",
-          "value": "{{ .APP_ID }}_db_password"
-        }
-      ]
+      "restart": "unless-stopped"
     }
   ]
 }
