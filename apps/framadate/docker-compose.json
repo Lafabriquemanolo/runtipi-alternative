@@ -1,22 +1,24 @@
 {
   "$schema": "https://raw.githubusercontent.com/runtipi/runtipi-appstore/main/apps/dynamic-compose-schema.json",
-  "services": {
-    "framadate": {
+  "services": [
+    {
+      "name": "{{ .APP_ID }}",
       "image": "tribut/framadate:latest",
       "isMain": true,
       "internalPort": 80,
       "restart": "unless-stopped",
       "depends_on": [
-        "framadate_db"
+        "{{ .APP_ID }}_db"
       ],
       "environment": {
-        "DB_HOST": "framadate_db",
+        "DB_HOST": "{{ .APP_ID }}_db",
         "DB_NAME": "framadate",
         "DB_USER": "framadate",
         "DB_PASSWORD": "{{ .APP_ID }}_db_password"
       }
     },
-    "framadate_db": {
+    {
+      "name": "{{ .APP_ID }}_db",
       "image": "mariadb:10.5",
       "restart": "unless-stopped",
       "volumes": [
@@ -44,5 +46,5 @@
         "MYSQL_PASSWORD": "{{ .APP_ID }}_db_password"
       }
     }
-  }
+  ]
 }
