@@ -5,7 +5,12 @@
       "image": "rallycommunity/rally:2.1.0",
       "isMain": true,
       "internalPort": 3000,
-      "depends_on": ["{{ .APP_ID }}_db"],
+      "restart": "unless-stopped",
+      "depends_on": {
+        "{{ .APP_ID }}_db": {
+          "condition": "service_healthy"
+        }
+      },
       "environment": [
         {
           "name": "DB_HOST",
@@ -32,12 +37,19 @@
     {
       "name": "{{ .APP_ID }}_db",
       "image": "postgres:13-alpine",
+      "restart": "unless-stopped",
       "volumes": [
         {
           "source": "{{ .DATA_DIR }}/postgres",
           "target": "/var/lib/postgresql/data"
         }
       ],
+      "healthcheck": {
+        "test": ["CMD-SHELL", "pg_isready -U rally -d rally"],
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5
+      },
       "environment": [
         {
           "name": "POSTGRES_USER",
