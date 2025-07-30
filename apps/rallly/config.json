@@ -1,20 +1,27 @@
 {
-  "name": "Rallly",
+  "name": "Rally",
   "available": true,
-  "port": 8082,
+  "port": 9587,
   "exposable": true,
   "dynamic_config": true,
-  "id": "rallly",
-  "description": "Outil de planification simple",
-  "tipi_version": 3,
-  "version": "3.0.0",
-  "categories": ["productivity"],
-  "short_desc": "Planning tool",
-  "author": "Luke Vella",
-  "source": "https://github.com/lukevella/rallly",
-  "website": "https://rallly.co",
+  "id": "rally",
+  "description": "Rally est une plateforme open-source de gestion de projet agile qui aide les équipes à planifier, suivre et livrer leurs projets logiciels de manière collaborative.",
+  "tipi_version": 4,
+  "version": "2.1.0",
+  "categories": [
+    "project-management",
+    "collaboration",
+    "development"
+  ],
+  "short_desc": "Plateforme open-source de gestion de projet agile.",
+  "author": "Rally Community",
+  "source": "https://github.com/RallyCommunity/Rally",
+  "website": "https://rallydev.com/",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"],
-  "created_at": 1691943801422,
-  "updated_at": 1729872794208
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1722330000000,
+  "updated_at": 1722330000000
 }
