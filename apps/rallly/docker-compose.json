@@ -1,31 +1,21 @@
 {
   "services": [
     {
-      "name": "rallly-db",
-      "image": "postgres:14.2",
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data/db",
-          "containerPath": "/var/lib/postgresql/data"
-        }
-      ],
-      "environment": [
-        "POSTGRES_PASSWORD=ralllypass",
-        "POSTGRES_DB=rallly",
-        "POSTGRES_USER=ralllyuser"
-      ]
-    },
-    {
       "name": "rallly",
       "image": "lukevella/rallly:3",
       "isMain": true,
       "internalPort": 3000,
-      "dependsOn": ["rallly-db"],
       "environment": [
-        "DATABASE_URL=postgres://ralllyuser:ralllypass@rallly-db:5432/rallly",
+        "DATABASE_URL=sqlite:./data/db.sqlite",
         "NEXT_PUBLIC_BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}:${APP_PORT}",
         "SECRET_PASSWORD=unMotDePasseSecretDe32Caracteress",
         "SUPPORT_EMAIL=admin@example.com"
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/app/data"
+        }
       ]
     }
   ]
